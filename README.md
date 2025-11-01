@@ -4,9 +4,13 @@
 
 Create a Task Tracker (TODO tracker) project using Spring Boot as backend and React JS as frontend. Containerize the application using Docker. Then deploy the backend to Google Cloud Run. Deploy the frontend to GitHub Pages.
 
+---
+
 ## YouTube Playlist
 
 [Spring Boot + React JS | Task Tracker Project Playlist](https://www.youtube.com/playlist?list=PLFsDocJcusVzPsrq1VujwvUQhVRs82OED)
+
+---
 
 ## Milestones
 
@@ -18,6 +22,8 @@ Create a Task Tracker (TODO tracker) project using Spring Boot as backend and Re
 | 4                | Frontend project setup (Scaffolding, Entity design, Navbar design, Routes design) | ⏳     | TBD                |
 | 5                | Containerize (Dockerfiles for backend and frontend)                               | ⏳     | TBD                |
 | 6                | Deployment (Google Cloud Run & GitHub Pages)                                      | ⏳     | TBD                |
+
+---
 
 ## Data model
 
@@ -33,6 +39,8 @@ Create a Task Tracker (TODO tracker) project using Spring Boot as backend and Re
 -   Enums:
     -   Status {TODO, IN_PROGRESS, DONE}
     -   Priority {LOW, MEDIUM, HIGH}
+
+---
 
 ## API Endpoints
 
@@ -125,16 +133,6 @@ Todos
 -   [ ] Write tests asserting error payload shape
 
 ---
-
-## Step-by-step guide
-
-High-level milestones
-
-1. Scaffold via Spring Initializr (Web, Data JPA, H2, Validation, Security, OpenAPI).
-2. Implement domain model and repository.
-3. Implement service layer and DTO mappings.
-4. Implement controllers with validation and response handling.
-5. Add global error handling and tests.
 
 ## Acceptance criteria
 
