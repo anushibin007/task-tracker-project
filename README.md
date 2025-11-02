@@ -14,14 +14,14 @@ Create a Task Tracker (TODO tracker) project using Spring Boot as backend and Re
 
 ## Milestones
 
-| Milestone Number | Activities                                                                        | Status | Youtube Video Link |
-| ---------------- | --------------------------------------------------------------------------------- | ------ | ------------------ |
-| 1                | Backend project setup (Scaffolding, Entity design, Database connection)           | ✅     | [Click here](https://www.youtube.com/live/BT1Er3ejLqM)                |
-| 2                | REST endpoints creation and testing                                               | ⏳     | TBD                |
-| 3                | Global error handling and validation                                              | ⏳     | TBD                |
-| 4                | Frontend project setup (Scaffolding, Entity design, Navbar design, Routes design) | ⏳     | TBD                |
-| 5                | Containerize (Dockerfiles for backend and frontend)                               | ⏳     | TBD                |
-| 6                | Deployment (Google Cloud Run & GitHub Pages)                                      | ⏳     | TBD                |
+| Milestone Number | Activities                                                                        | Status         | Youtube Video Link                                 |
+| ---------------- | --------------------------------------------------------------------------------- | -------------- | -------------------------------------------------- |
+| 1                | Backend project setup (Scaffolding, Entity design, Database connection)           | ✅             | [Part 1](https://www.youtube.com/live/BT1Er3ejLqM) |
+| 2                | REST endpoints creation and testing                                               | Partially done | [Part 2](https://www.youtube.com/live/VUlOtstYHJg) |
+| 3                | Global error handling and validation                                              | ⏳             | TBD                                                |
+| 4                | Frontend project setup (Scaffolding, Entity design, Navbar design, Routes design) | ⏳             | TBD                                                |
+| 5                | Containerize (Dockerfiles for backend and frontend)                               | ⏳             | TBD                                                |
+| 6                | Deployment (Google Cloud Run & GitHub Pages)                                      | ⏳             | TBD                                                |
 
 ---
 
