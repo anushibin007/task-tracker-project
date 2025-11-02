@@ -106,19 +106,12 @@ Todos
 
 ### List (GET /api/tasks)
 
-Behavior: Return a pageable list with optional filters and sorting.
+Behavior: Return a pageable list with sorting.
 
 Query params
 
--   status, priority, dueBefore, dueAfter, titleContains
--   sort (e.g. dueDate,createdAt), direction (asc|desc)
 -   page, size (defaults: page=0, size=20)
-
-Todos
-
--   [ ] Implement Specification-based filtering (or Criteria API)
--   [ ] Support sorting and pagination with sensible defaults
--   [ ] Add integration tests for combinations of filters + sort + page
+-   sort (e.g. dueDate,createdAt), direction (asc|desc)
 
 ---
 
