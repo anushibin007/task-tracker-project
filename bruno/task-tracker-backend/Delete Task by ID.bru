@@ -1,0 +1,29 @@
+meta {
+  name: Delete Task by ID
+  type: http
+  seq: 6
+}
+
+delete {
+  url: http://localhost:8080/api/tasks/:id
+  body: none
+  auth: inherit
+}
+
+params:path {
+  id: 4
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "title": "Buy groceries",
+    "description": "Milk, bread",
+    "status": "TODO",
+    "priority": "MEDIUM",
+    "dueDate": "2025-11-10"
+  }
+}

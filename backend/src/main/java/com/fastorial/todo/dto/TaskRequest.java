@@ -1,36 +1,26 @@
-package com.fastorial.todo.model;
+package com.fastorial.todo.dto;
 
 import java.sql.Timestamp;
 
+import com.fastorial.todo.model.Task;
 import com.fastorial.todo.types.Priority;
 import com.fastorial.todo.types.Status;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.validation.constraints.NotBlank;
 
-@Entity
-public class Task {
-
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Long id;
+public class TaskRequest {
+	@NotBlank(message = "Title is mandatory for Task")
 	String title;
 	String description;
+	// TODO: This needs a custom validator. Will be done sometime later when doing
+	// global validation
 	Status status;
+	// TODO: This needs a custom validator. Will be done sometime later when doing
+	// global validation
 	Priority priority;
+	// TODO: This needs a custom validator. Will be done sometime later when doing
+	// global validation
 	Timestamp dueDate;
-	Timestamp createdAt;
-	Timestamp updatedAt;
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
 
 	public String getTitle() {
 		return title;
@@ -72,20 +62,16 @@ public class Task {
 		this.dueDate = dueDate;
 	}
 
-	public Timestamp getCreatedAt() {
-		return createdAt;
-	}
+	public static Task buildFromTaskCreationRequest(TaskRequest req) {
+		Task task = new Task();
 
-	public void setCreatedAt(Timestamp createdAt) {
-		this.createdAt = createdAt;
-	}
+		task.setTitle(req.getTitle());
+		task.setDescription(req.getDescription());
+		task.setPriority(req.getPriority());
+		task.setStatus(req.getStatus());
+		task.setDueDate(req.getDueDate());
 
-	public Timestamp getUpdatedAt() {
-		return updatedAt;
-	}
-
-	public void setUpdatedAt(Timestamp updatedAt) {
-		this.updatedAt = updatedAt;
+		return task;
 	}
 
 }

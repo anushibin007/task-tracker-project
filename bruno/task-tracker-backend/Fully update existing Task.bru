@@ -1,0 +1,29 @@
+meta {
+  name: Fully update existing Task
+  type: http
+  seq: 4
+}
+
+put {
+  url: http://localhost:8080/api/tasks/:id
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 4
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    "title": "Buy groceries",
+    "description": "Milk, bread",
+    "status": "TODO",
+    "priority": "LOW",
+    "dueDate": "2025-11-10"
+  }
+}

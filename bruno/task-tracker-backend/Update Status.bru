@@ -1,0 +1,27 @@
+meta {
+  name: Update Status
+  type: http
+  seq: 5
+}
+
+patch {
+  url: http://localhost:8080/api/tasks/:id/status
+  body: json
+  auth: inherit
+}
+
+params:path {
+  id: 5
+}
+
+headers {
+  Content-Type: application/json
+}
+
+body:json {
+  {
+    
+    "status": "DONE"
+    
+  }
+}
