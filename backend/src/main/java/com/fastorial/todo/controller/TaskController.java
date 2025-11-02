@@ -4,6 +4,8 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -79,5 +81,10 @@ public class TaskController {
 	public ResponseEntity<Task> deleteTaskById(@PathVariable Long id) {
 		Task deletedTaskData = svc.deleteById(id);
 		return ResponseEntity.status(204).body(deletedTaskData);
+	}
+
+	@GetMapping("/api/tasks")
+	public Page<Task> getAllTasks(Pageable pageable) {
+		return svc.getAllTasks(pageable);
 	}
 }

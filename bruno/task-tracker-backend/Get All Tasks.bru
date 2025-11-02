@@ -1,17 +1,19 @@
 meta {
-  name: Fully update existing Task
+  name: Get All Tasks
   type: http
-  seq: 4
+  seq: 7
 }
 
-put {
-  url: http://localhost:8080/api/tasks/:id
-  body: json
+get {
+  url: http://localhost:8080/api/tasks?size=10&page=0&sort=priority,desc
+  body: none
   auth: inherit
 }
 
-params:path {
-  id: 2
+params:query {
+  size: 10
+  page: 0
+  sort: priority,desc
 }
 
 headers {
@@ -23,7 +25,7 @@ body:json {
     "title": "Buy groceries",
     "description": "Milk, bread",
     "status": "TODO",
-    "priority": "HIGH",
+    "priority": "MEDIUM",
     "dueDate": "2025-11-10"
   }
 }

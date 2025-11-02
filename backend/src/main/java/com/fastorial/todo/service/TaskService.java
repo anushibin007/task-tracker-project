@@ -3,6 +3,8 @@ package com.fastorial.todo.service;
 import java.sql.Timestamp;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.fastorial.todo.dto.TaskRequest;
@@ -93,6 +95,10 @@ public class TaskService {
 		repo.delete(task);
 
 		return task;
+	}
+
+	public Page<Task> getAllTasks(Pageable pageable) {
+		return repo.findAll(pageable);
 	}
 
 }
