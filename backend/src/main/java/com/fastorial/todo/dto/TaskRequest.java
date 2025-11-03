@@ -74,4 +74,16 @@ public class TaskRequest {
 		return task;
 	}
 
+	public static TaskRequest buildFromTaskEntity(Task task) {
+		TaskRequest req = new TaskRequest();
+
+		req.setTitle(task.getTitle());
+		req.setDescription(task.getDescription());
+		req.setPriority(task.getPriority());
+		req.setStatus(task.getStatus());
+		req.setDueDate(task.getDueDate());
+
+		return req;
+	}
+
 }
