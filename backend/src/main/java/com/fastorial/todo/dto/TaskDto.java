@@ -6,13 +6,18 @@ import com.fastorial.todo.model.Task;
 import com.fastorial.todo.types.Priority;
 import com.fastorial.todo.types.Status;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
+
 /**
  * Full representation of the Task
  */
 public class TaskDto {
 
 	Long id;
+	@NotBlank(message = "Title is mandatory for Task")
 	String title;
+	@Size(max = 500, message = "Description must be at most 500 characters long")
 	String description;
 	Status status;
 	Priority priority;

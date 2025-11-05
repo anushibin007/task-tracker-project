@@ -7,10 +7,12 @@ import com.fastorial.todo.types.Priority;
 import com.fastorial.todo.types.Status;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 
 public class TaskRequest {
 	@NotBlank(message = "Title is mandatory for Task")
 	String title;
+	@Size(max = 500, message = "Description must be at most 500 characters long")
 	String description;
 	// TODO: This needs a custom validator. Will be done sometime later when doing
 	// global validation
