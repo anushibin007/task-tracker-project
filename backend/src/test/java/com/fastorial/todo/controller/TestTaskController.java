@@ -96,10 +96,12 @@ public class TestTaskController {
 
 	@Test
 	void testFindByIdFail() throws Exception {
-		mockMvc.perform(get("/api/tasks/63636") //
+		mockMvc.perform(get("/api/tasks/63636") // arbitrary non-existent ID
 				.contentType(MediaType.APPLICATION_JSON)) //
 				.andExpect(status().isNotFound()) // 404
-		;
+				.andExpect(jsonPath("$.status").value(404)) //
+				.andExpect(jsonPath("$.message").value("Task with id 63636 is not found")) //
+				.andExpect(jsonPath("$.path").value("/api/tasks/63636"));
 	}
 
 	@Test
