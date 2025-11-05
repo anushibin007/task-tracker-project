@@ -1,5 +1,6 @@
 package com.fastorial.todo.util;
 
+import java.sql.Timestamp;
 import java.time.Instant;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
@@ -21,6 +22,12 @@ public class HelperFunctions {
 		OffsetDateTime odt = OffsetDateTime.ofInstant(Instant.ofEpochMilli(timestamp), ZoneOffset.of("+00:00"));
 		String formatted = odt.format(formatter);
 		System.out.println("timeStampAsString = " + formatted);
+		return formatted;
+	}
+
+	public static String timeStampAsString(Timestamp timestamp) {
+		String formatted = timestamp.toInstant().atOffset(ZoneOffset.UTC)
+				.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSSxxxxx"));
 		return formatted;
 	}
 }
