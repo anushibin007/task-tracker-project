@@ -2,8 +2,32 @@ import { Button, Col, Input, Row, Select } from "antd";
 const { TextArea } = Input;
 import "./App.css";
 import Title from "antd/es/typography/Title";
+import { useEffect, useState } from "react";
 
 function App() {
+	const [taskTitle, setTaskTitle] = useState("");
+	const [taskDescription, setTaskDescription] = useState("");
+	const [taskPriority, setTaskPriority] = useState("LOW");
+
+	useEffect(() => {
+		console.log(taskPriority);
+	}, [taskPriority]);
+
+	const createATodo = () => {
+		fetch("http://localhost:8080/api/tasks", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/json",
+			},
+			body: JSON.stringify({
+				title: taskTitle,
+				description: taskDescription,
+				priority: taskPriority,
+				status: "TODO",
+			}),
+		});
+	};
+
 	return (
 		<>
 			<Row justify="center">
@@ -15,7 +39,13 @@ function App() {
 				<Col flex={1}>
 					<Row>
 						<Col flex={1} span={18} style={{ margin: "2px" }}>
-							<Input placeholder="Task title" />
+							<Input
+								value={taskTitle}
+								onChange={(e) => {
+									setTaskTitle(e.target.value);
+								}}
+								placeholder="Task title"
+							/>
 						</Col>
 						<Col flex={1} span={6} style={{ margin: "2px" }}>
 							<Select
@@ -25,17 +55,29 @@ function App() {
 									{ value: "MEDIUM", label: "Medium" },
 									{ value: "HIGH", label: "High" },
 								]}
+								value={taskPriority}
+								onChange={(e) => {
+									setTaskPriority(e);
+								}}
 							/>
 						</Col>
 					</Row>
 					<Row>
 						<Col flex={1} style={{ margin: "2px" }}>
-							<TextArea placeholder="Task description" />
+							<TextArea
+								value={taskDescription}
+								onChange={(e) => {
+									setTaskDescription(e.target.value);
+								}}
+								placeholder="Task description"
+							/>
 						</Col>
 					</Row>
 					<Row justify="center">
 						<Col style={{ margin: "2px" }}>
-							<Button type="primary">Create Task</Button>
+							<Button onClick={createATodo} type="primary">
+								Create Task
+							</Button>
 						</Col>
 					</Row>
 				</Col>
