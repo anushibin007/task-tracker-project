@@ -1,7 +1,7 @@
 -   [x] `Vite JS` project scaffolding
 -   [x] `antd` setup
 -   [x] Understanding `Grids` in `antd`
--   [ ] Create a basic TODO form with
-    -   [ ] Title
-    -   [ ] Description
-    -   [ ] Priority
+-   [x] Create a basic TODO form with
+    -   [x] Title
+    -   [x] Description
+    -   [x] Priority
