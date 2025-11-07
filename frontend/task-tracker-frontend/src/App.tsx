@@ -4,13 +4,14 @@ import "./App.css";
 import Title from "antd/es/typography/Title";
 import { useEffect, useState } from "react";
 import { TaskItemRow } from "./components/TaskItemRow";
+import type { TaskDto } from "./types";
 
 function App() {
 	const [taskTitle, setTaskTitle] = useState("");
 	const [taskDescription, setTaskDescription] = useState("");
 	const [taskPriority, setTaskPriority] = useState("LOW");
 
-	const [allTodos, setAllTodos] = useState([]);
+	const [allTodos, setAllTodos] = useState<TaskDto[]>([]);
 
 	useEffect(() => {
 		console.log(taskPriority);
@@ -115,7 +116,7 @@ function App() {
 						</Col>
 					</Row>
 					{allTodos.map((task) => (
-						<TaskItemRow task={task} fetchAllTodos={fetchAllTodos} />
+						<TaskItemRow key={task.id} task={task} fetchAllTodos={fetchAllTodos} />
 					))}
 				</Col>
 			</Row>
