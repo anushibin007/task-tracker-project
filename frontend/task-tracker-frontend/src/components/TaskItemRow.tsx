@@ -1,5 +1,6 @@
 import { Button, Col, Row } from "antd";
 import type { TaskDto } from "../types";
+import { BACKEND_ROOT } from "../Constants";
 
 // TODO -> IN_PROGRESS -> DONE
 
@@ -30,7 +31,7 @@ export const TaskItemRow = ({
 			newStatus = "TODO";
 		}
 
-		await fetch(`http://localhost:8080/api/tasks/${task.id}/status`, {
+		await fetch(`${BACKEND_ROOT}/api/tasks/${task.id}/status`, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json",
@@ -42,7 +43,7 @@ export const TaskItemRow = ({
 	};
 
 	const deleteTask = async () => {
-		await fetch(`http://localhost:8080/api/tasks/${task.id}`, {
+		await fetch(`${BACKEND_ROOT}/api/tasks/${task.id}`, {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json",

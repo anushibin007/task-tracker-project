@@ -5,6 +5,7 @@ import Title from "antd/es/typography/Title";
 import { useEffect, useState } from "react";
 import { TaskItemRow } from "./components/TaskItemRow";
 import type { TaskDto } from "./types";
+import { BACKEND_ROOT } from "./Constants";
 
 function App() {
 	const [taskTitle, setTaskTitle] = useState("");
@@ -22,7 +23,7 @@ function App() {
 	}, []);
 
 	const createATodo = async () => {
-		await fetch("http://localhost:8080/api/tasks", {
+		await fetch(`${BACKEND_ROOT}/api/tasks`, {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -46,7 +47,7 @@ function App() {
 	};
 
 	const fetchAllTodos = async () => {
-		await fetch("http://localhost:8080/api/tasks", {
+		await fetch(`${BACKEND_ROOT}/api/tasks`, {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
