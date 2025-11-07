@@ -21,8 +21,8 @@ function App() {
 		fetchAllTodos();
 	}, []);
 
-	const createATodo = () => {
-		fetch("http://localhost:8080/api/tasks", {
+	const createATodo = async () => {
+		await fetch("http://localhost:8080/api/tasks", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json",
@@ -36,8 +36,17 @@ function App() {
 		});
 	};
 
-	const fetchAllTodos = () => {
-		fetch("http://localhost:8080/api/tasks", {
+	const handleCreateATodo = async () => {
+		await createATodo().then(() => {
+			setTaskTitle("");
+			setTaskDescription("");
+			setTaskPriority("LOW");
+		});
+		fetchAllTodos();
+	};
+
+	const fetchAllTodos = async () => {
+		await fetch("http://localhost:8080/api/tasks", {
 			method: "GET",
 			headers: {
 				"Content-Type": "application/json",
@@ -96,7 +105,7 @@ function App() {
 					</Row>
 					<Row justify="center">
 						<Col style={{ margin: "2px" }}>
-							<Button onClick={createATodo} type="primary">
+							<Button onClick={handleCreateATodo} type="primary">
 								Create Task
 							</Button>
 						</Col>
