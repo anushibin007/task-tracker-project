@@ -115,7 +115,7 @@ function App() {
 						</Col>
 					</Row>
 					{allTodos.map((task) => (
-						<TaskItemRow task={task} />
+						<TaskItemRow task={task} fetchAllTodos={fetchAllTodos} />
 					))}
 				</Col>
 			</Row>

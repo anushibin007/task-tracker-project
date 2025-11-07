@@ -3,7 +3,13 @@ import type { TaskDto } from "../types";
 
 // TODO -> IN_PROGRESS -> DONE
 
-export const TaskItemRow = ({ task }: { task: TaskDto }) => {
+export const TaskItemRow = ({
+	task,
+	fetchAllTodos,
+}: {
+	task: TaskDto;
+	fetchAllTodos: Function;
+}) => {
 	const getPrimaryActionButtonText = () => {
 		if (task.status === "TODO") {
 			return "Start progress";
@@ -14,7 +20,7 @@ export const TaskItemRow = ({ task }: { task: TaskDto }) => {
 		}
 	};
 
-	const updateTaskStatus = () => {
+	const updateTaskStatus = async () => {
 		var newStatus = "";
 		if (task.status === "TODO") {
 			newStatus = "IN_PROGRESS";
@@ -24,7 +30,7 @@ export const TaskItemRow = ({ task }: { task: TaskDto }) => {
 			newStatus = "TODO";
 		}
 
-		fetch(`http://localhost:8080/api/tasks/${task.id}/status`, {
+		await fetch(`http://localhost:8080/api/tasks/${task.id}/status`, {
 			method: "PATCH",
 			headers: {
 				"Content-Type": "application/json",
@@ -35,8 +41,8 @@ export const TaskItemRow = ({ task }: { task: TaskDto }) => {
 		});
 	};
 
-	const deleteTask = () => {
-		fetch(`http://localhost:8080/api/tasks/${task.id}`, {
+	const deleteTask = async () => {
+		await fetch(`http://localhost:8080/api/tasks/${task.id}`, {
 			method: "DELETE",
 			headers: {
 				"Content-Type": "application/json",
@@ -44,12 +50,14 @@ export const TaskItemRow = ({ task }: { task: TaskDto }) => {
 		});
 	};
 
-	const handlePrimaryActionButtonClicked = () => {
-		updateTaskStatus();
+	const handlePrimaryActionButtonClicked = async () => {
+		await updateTaskStatus();
+		fetchAllTodos();
 	};
 
-	const handleDeleteTask = () => {
-		deleteTask();
+	const handleDeleteTask = async () => {
+		await deleteTask();
+		fetchAllTodos();
 	};
 
 	return (
