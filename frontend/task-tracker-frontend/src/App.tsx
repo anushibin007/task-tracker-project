@@ -3,15 +3,22 @@ const { TextArea } = Input;
 import "./App.css";
 import Title from "antd/es/typography/Title";
 import { useEffect, useState } from "react";
+import { TaskItemRow } from "./components/TaskItemRow";
 
 function App() {
 	const [taskTitle, setTaskTitle] = useState("");
 	const [taskDescription, setTaskDescription] = useState("");
 	const [taskPriority, setTaskPriority] = useState("LOW");
 
+	const [allTodos, setAllTodos] = useState([]);
+
 	useEffect(() => {
 		console.log(taskPriority);
 	}, [taskPriority]);
+
+	useEffect(() => {
+		fetchAllTodos();
+	}, []);
 
 	const createATodo = () => {
 		fetch("http://localhost:8080/api/tasks", {
@@ -26,6 +33,19 @@ function App() {
 				status: "TODO",
 			}),
 		});
+	};
+
+	const fetchAllTodos = () => {
+		fetch("http://localhost:8080/api/tasks", {
+			method: "GET",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		})
+			.then((resp) => resp.json())
+			.then((data) => {
+				setAllTodos(data.content);
+			});
 	};
 
 	return (
@@ -80,6 +100,23 @@ function App() {
 							</Button>
 						</Col>
 					</Row>
+				</Col>
+			</Row>
+			{
+				// Existing Tasks below
+			}
+			<Row style={{ border: "solid 1px black", borderRadius: "10px" }}>
+				<Col span={24}>
+					<Row>
+						<Col style={{ margin: "2px" }}>
+							<Title style={{ margin: "2px" }} level={4}>
+								Your Tasks
+							</Title>
+						</Col>
+					</Row>
+					{allTodos.map((task) => (
+						<TaskItemRow task={task} />
+					))}
 				</Col>
 			</Row>
 		</>
