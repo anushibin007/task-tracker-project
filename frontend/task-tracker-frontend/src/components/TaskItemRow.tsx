@@ -35,8 +35,21 @@ export const TaskItemRow = ({ task }: { task: TaskDto }) => {
 		});
 	};
 
+	const deleteTask = () => {
+		fetch(`http://localhost:8080/api/tasks/${task.id}`, {
+			method: "DELETE",
+			headers: {
+				"Content-Type": "application/json",
+			},
+		});
+	};
+
 	const handlePrimaryActionButtonClicked = () => {
 		updateTaskStatus();
+	};
+
+	const handleDeleteTask = () => {
+		deleteTask();
 	};
 
 	return (
@@ -58,7 +71,7 @@ export const TaskItemRow = ({ task }: { task: TaskDto }) => {
 				<Row justify="space-between">
 					<Col style={{ margin: "2px" }}>{task.description}</Col>
 					<Col style={{ margin: "2px" }}>
-						<Button>Delete Task</Button>
+						<Button onClick={handleDeleteTask}>Delete Task</Button>
 					</Col>
 				</Row>
 			</Col>
