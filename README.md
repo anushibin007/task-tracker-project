@@ -21,7 +21,7 @@ Create a Task Tracker (TODO tracker) project using Spring Boot as backend and Re
 | 3                | JUnits, Global error handling and validation                            | ✅     | [Part 4](https://www.youtube.com/watch?v=tRxmYXxU1zY) </br> [Part 5](https://www.youtube.com/live/Om9_e97M8mI?si=uqCv1GjkgX1M66P3) </br> [Part 6](https://www.youtube.com/live/wQGUVera1P4) |
 | 4                | Frontend (Scaffolding, Entity design, Navbar design, Routes design)     | ✅     | [Part 7](https://www.youtube.com/live/CvxM4Ns4XTA) </br> [Part 8](https://www.youtube.com/live/KD06h0BKq30)                                                                                 |
 | 5                | Containerize (Dockerfiles for backend and frontend)                     | ✅     | [Part 9](https://www.youtube.com/live/EuR0E5HMxr0)                                                                                                                                          |
-| 6                | Deployment (Google Cloud Run & GitHub Pages)                            | ⏳     | TBD                                                                                                                                                                                         |
+| 6                | Deployment (Google Cloud Run & GitHub Pages)                            | ✅     | [Part 10](https://www.youtube.com/live/ICWkdvWi1gI?si=4CY9CMyVXIYvqjXX)                                                                                                                     |
 
 ---
 
